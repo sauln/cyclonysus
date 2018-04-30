@@ -3,7 +3,7 @@ from collections import Counter
 
 import numpy as np
 
-from cyclenysus import Cycler
+from cyclonysus import Cycler
 
 class TestCycler():
     def test_is_a_cycle(self):

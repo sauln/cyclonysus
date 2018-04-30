@@ -5,16 +5,16 @@ from setuptools import setup
 with open('README.md') as f:
     long_description = f.read()
 
-setup(name='cyclenysus',
+setup(name='cyclonysus',
       version='0.0.1',
       description="Representative Cycles doesn't have to be hard.",
       long_description=long_description,
       long_description_content_type="text/markdown",	
       author='Nathaniel Saul',
       author_email='nathaniel.saul@wsu.edu',
-      url='https://github.com/sauln/cyclenysus',
+      url='https://github.com/sauln/cyclonysus',
       license='MIT',
-      packages=['cyclenysus'],
+      packages=['cyclonysus'],
       include_package_data=True,
       install_requires=[
         # For the library

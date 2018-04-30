@@ -17,7 +17,7 @@ install:
   - pip install pytest-cov
 
 script:
-  - pytest --cov cyclenysus
+  - pytest --cov cyclonysus
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)

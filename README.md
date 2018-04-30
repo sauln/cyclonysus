@@ -1,21 +1,21 @@
-[![Build Status](https://travis-ci.org/sauln/cyclenysus.svg?branch=master)](https://travis-ci.org/sauln/cyclenysus)
-[![codecov](https://codecov.io/gh/sauln/cyclenysus/branch/master/graph/badge.svg)](https://codecov.io/gh/sauln/cyclenysus)
+[![Build Status](https://travis-ci.org/sauln/cyclonysus.svg?branch=master)](https://travis-ci.org/sauln/cyclonysus)
+[![codecov](https://codecov.io/gh/sauln/cyclonysus/branch/master/graph/badge.svg)](https://codecov.io/gh/sauln/cyclonysus)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# Cyclenysus
+# cyclonysus
 
 This is a very lightweight library that hides all the headaches of extracting representative cycles from persistence diagrams. 
 
-Cyclenysus currently sits on top of Dionysus, but hides almost everything from you. All you have to worry about is your numpy arrays.
+cyclonysus currently sits on top of Dionysus, but hides almost everything from you. All you have to worry about is your numpy arrays.
 
 There are no guarantees that this library is fast, well written, or correct. If you find issues, please create a github issue or pull request. It is currently only tested for 1-cycles.
 
 ## Setup
 
-This library is a wrapper around Dionysus and Dionysus requires Boost to work properly. If you have Boost, then you can install Cyclenysus easily.
+This library is a wrapper around Dionysus and Dionysus requires Boost to work properly. If you have Boost, then you can install cyclonysus easily.
 
 ```
-git clone https://github.com/sauln/cyclenysus
+git clone https://github.com/sauln/cyclonysus
 pip install -e .
 ```
 
@@ -40,7 +40,7 @@ data = np.concatenate([data,np.random.random((30,2))+3])
 Then, we'll generate the persistence diagram for $H_1$ for this data.  Using persistence diagram, we can extract the longest 3 cycles and vertex sets of each cycle.
 
 ``` Python
-from cyclenysus import Cycler
+from cyclonysus import Cycler
 
 cycler = Cycler()
 cycler.fit(data)
