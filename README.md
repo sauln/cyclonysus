@@ -1,24 +1,27 @@
 # Cyclenysus
 
-This is a very lightweight library that hides all the headaches of extracting representative cycles from persistence diagrams. It currently sits on top of Dionysus, but hides almost everything from you. All you have to worry about is your numpy arrays.
+This is a very lightweight library that hides all the headaches of extracting representative cycles from persistence diagrams. 
 
-There are no guarantees that this library is fast, well written, or correct. If you find issues, please create a github issue or pull request.
+Cyclenysus currently sits on top of Dionysus, but hides almost everything from you. All you have to worry about is your numpy arrays.
 
-# Setup
+There are no guarantees that this library is fast, well written, or correct. If you find issues, please create a github issue or pull request. It is currently only tested for 1-cycles.
 
-This library is a wrapper around Dionysus and Dionysus requires Boost to work properly. If you have Boost, then you can install easily.
+## Setup
+
+This library is a wrapper around Dionysus and Dionysus requires Boost to work properly. If you have Boost, then you can install Cyclenysus easily.
 
 ```
 git clone https://github.com/sauln/cyclenysus
 pip install -e .
 ```
 
-
-# Usage
+## Usage
 
 First, construct a diagram. In this example, we will use [Ripser](https://github.com/sauln/ripser).
 
-First generate some data, one big circle and some noise stuff a ways away.
+### First generate some data. 
+
+Create one big noise circle and a noisy blob nearby.
 
 ``` Python
 import numpy as np
@@ -30,7 +33,7 @@ data = np.concatenate([data,np.random.random((30,2))+3])
 
 ![raw data, one noise circle with another blob nearby][dataset]
 
-Then generate the persistence diagrams, longest 3 cycles, and vertex sets.
+Then, we'll generate the persistence diagram for $H_1$ for this data.  Using persistence diagram, we can extract the longest 3 cycles and vertex sets of each cycle.
 
 ``` Python
 from cyclenysus import Cycler
@@ -64,7 +67,7 @@ plt.show()
 
 ![multiple cycles on dataset][multiple-cycles]
 
-
+Checkout the notebook [Computing Cycles.ipynb](notebooks/Compute Cycles.ipynb) for an executable example.
 
 
 <!-- Images -->

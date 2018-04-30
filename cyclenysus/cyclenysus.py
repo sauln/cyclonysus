@@ -11,9 +11,10 @@ class Cycler:
     
     def __init__(self, order=1):
         self.order = order
-        self._diagram = None
         self.barcode = None
         self.cycles = None
+        
+        self._diagram = None
         self._filtration = None
         
     def fit(self, data):
@@ -55,12 +56,12 @@ class Cycler:
                 
                 # Break dionysus iterator representation so it becomes a list
                 cycle = [s for s in cycle_raw]
-                cycle = self.data_representation_of_cycle(cycle)
+                cycle = self._data_representation_of_cycle(cycle)
                 cycles[interval.data] = cycle
         
         self.cycles = cycles
 
-    def data_representation_of_cycle(self, cycle_raw):
+    def _data_representation_of_cycle(self, cycle_raw):
         cycle = np.array([list(self._filtration[s.index]) for s in cycle_raw])    
         return cycle
 
