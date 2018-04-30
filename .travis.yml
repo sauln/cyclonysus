@@ -6,13 +6,11 @@ python:
 
 
 # Installing additional tools for dionysus and boost :(
-addons: 
-  apt:
-    sources:
-      - boost-latest
-      - ubuntu-toolchain-r-test
-    packages:
-      - libboost1.55-all-dev
+before_script:
+  - sudo apt-get update -qq
+  - sudo apt-get install libboost-dev
+
+
 
 install:
   - pip install .
