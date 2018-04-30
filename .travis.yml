@@ -4,6 +4,16 @@ python:
   - "3.5"
   - "3.6"
 
+
+# Installing additional tools for dionysus and boost :(
+addons: 
+  apt:
+    sources:
+      - boost-latest
+      - ubuntu-toolchain-r-test
+    packages:
+      - libboost1.55-all-dev
+
 install:
   - pip install .
   - pip install pytest-cov

@@ -22,7 +22,6 @@ setup(name='cyclenysus',
         'numpy',
 
         # For the examples
-        'ripser',
         'scipy',
         'scikit-learn',
         'matplotlib'

@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/sauln/cyclenysus.svg?branch=master)](https://travis-ci.org/sauln/cyclenysus)
+[![codecov](https://codecov.io/gh/sauln/cyclenysus/branch/master/graph/badge.svg)](https://codecov.io/gh/sauln/cyclenysus)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # Cyclenysus
 
 This is a very lightweight library that hides all the headaches of extracting representative cycles from persistence diagrams. 
