@@ -71,7 +71,7 @@ plt.show()
 
 ![multiple cycles on dataset][multiple-cycles]
 
-Checkout the notebook [Computing Cycles.ipynb](notebooks/Compute Cycles.ipynb) for an executable example.
+Checkout the notebook [Computing Cycles.ipynb](notebooks/Compute%20Cycles.ipynb) for an executable example.
 
 
 <!-- Images -->
