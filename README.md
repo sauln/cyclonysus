@@ -1,6 +1,6 @@
 # Cyclenysus
 
-This is a very lightweight wrapper that hides all the headaches of extracting representative cycles from persistence diagrams.
+This is a very lightweight library that hides all the headaches of extracting representative cycles from persistence diagrams. It currently sits on top of Dionysus, but hides almost everything from you. All you have to worry about is your numpy arrays.
 
 There are no guarantees that this library is fast, well written, or correct. If you find issues, please create a github issue or pull request.
 
@@ -28,6 +28,8 @@ data, _ = datasets.make_circles(40)
 data = np.concatenate([data,np.random.random((30,2))+3])
 ```
 
+![raw data, one noise circle with another blob nearby][dataset]
+
 Then generate the persistence diagrams, longest 3 cycles, and vertex sets.
 
 ``` Python
@@ -42,7 +44,11 @@ cycles = [cycler.get_cycle(interval) for interval in top_intervals]
 vertex_sets = [cycler.order_vertices(cycle) for cycle in cycles]
 ```
 
-Then we can visualize our cycles.
+Using `ripser`, the generated persistence diagram looks like
+
+![persistence diagram for H1. One point far from the diagonal][persistence-diagram]
+
+Let's take a look at the cycles we generated overlaid on the original data. In the image below, the longest interval corresponds to the cycle around the main circle, just as we would expect.
 
 ``` Python
 # Plot cycle
@@ -55,3 +61,14 @@ xs, ys = data[:,0], data[:,1]
 plt.scatter(xs, ys)
 plt.show()
 ```
+
+![multiple cycles on dataset][multiple-cycles]
+
+
+
+
+<!-- Images -->
+[persistence-diagram]: docs/images/persistence_diagram.png
+[dataset]: docs/images/data_with_noisy_circle.png
+[multiple-cycles]: docs/images/multiple-cycles.png "Multiple cycles on dataset"
+
