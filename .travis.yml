@@ -4,13 +4,25 @@ python:
   - "3.5"
   - "3.6"
 
+os:   linux
+dist: trusty
+sudo: required
 
-# Installing additional tools for dionysus and boost :(
+before_install:
+  - sudo apt-get -qq update
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-7
+      - cmake
+      - libboost1.55-dev
+
 before_script:
-  - sudo apt-get update -qq
-  - sudo apt-get install libboost-dev
-
-
+  - CC=gcc-7 CXX=g++-7 python setup.py install
+  - pip install sphinx numpy scipy matplotlib nb2plots
 
 install:
   - pip install .
