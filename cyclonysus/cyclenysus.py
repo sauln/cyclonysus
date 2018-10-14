@@ -16,27 +16,38 @@ class Cycler:
         
         self._diagram = None
         self._filtration = None
-        
+    
     def fit(self, data):
         """ Generate Rips filtration and cycles for data.
         """
 
-        # Generate rips filtration 
+       # Generate rips filtration 
         maxeps = np.max(data.std(axis=0)) # TODO: is this the best choice?
-        cpx = dionysus.fill_rips(data, self.order+1, maxeps)
+        simplices = dionysus.fill_rips(data, self.order+1 , maxeps)
+        
+        self.from_simplices(simplices)
 
+
+    def from_simplices(self, simplices):
+
+        if not isinstance(simplices, dionysus.Filtration):
+            simplices = dionysus.Filtration(simplices)
+
+
+ 
+        # import pdb; pdb.set_trace()
         # Add cone point to force homology to finite length; Dionysus only gives out cycles of finite intervals
-        spxs = [dionysus.Simplex([-1])] + [c.join(-1) for c in cpx]
+        spxs = [dionysus.Simplex([-1])] + [c.join(-1) for c in simplices]
         for spx in spxs:
             spx.data = 1
-            cpx.append(spx)
+            simplices.append(spx)
 
         # Compute persistence diagram
-        persistence = dionysus.homology_persistence(cpx)
-        diagrams = dionysus.init_diagrams(persistence, cpx)
+        persistence = dionysus.homology_persistence(simplices)
+        diagrams = dionysus.init_diagrams(persistence, simplices)
 
         # Set all the results
-        self._filtration = cpx
+        self._filtration = simplices
         self._diagram = diagrams[self.order]
         self._persistence = persistence
         self.barcode = np.array([(d.birth, d.death) for d in self._diagram])
